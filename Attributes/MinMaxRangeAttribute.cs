@@ -138,19 +138,21 @@ namespace MyBox.Internal
             float rangeMax = rangeAttribute.Max;
 
 
-            const float rangeBoundsLabelWidth = 40f;
+            const float rangeBoundsLabelWidth = 45f;
 
             var rangeBoundsLabel1Rect = new Rect(position);
             rangeBoundsLabel1Rect.width = rangeBoundsLabelWidth;
-            GUI.Label(rangeBoundsLabel1Rect, new GUIContent(minValue.ToString(isInt ? "F0" : "F2")));
+            //GUI.Label(rangeBoundsLabel1Rect, new GUIContent(minValue.ToString(isInt ? "F0" : "F2")));
+            minValue = EditorGUI.FloatField(rangeBoundsLabel1Rect, minValue);
             position.xMin += rangeBoundsLabelWidth;
 
             var rangeBoundsLabel2Rect = new Rect(position);
             rangeBoundsLabel2Rect.xMin = rangeBoundsLabel2Rect.xMax - rangeBoundsLabelWidth;
-            GUI.Label(rangeBoundsLabel2Rect, new GUIContent(maxValue.ToString(isInt ? "F0" : "F2")));
+            //GUI.Label(rangeBoundsLabel2Rect, new GUIContent(maxValue.ToString(isInt ? "F0" : "F2")));
+            maxValue = EditorGUI.FloatField(rangeBoundsLabel2Rect, maxValue);
             position.xMax -= rangeBoundsLabelWidth;
 
-            EditorGUI.BeginChangeCheck();
+            //EditorGUI.BeginChangeCheck();
             EditorGUI.MinMaxSlider(position, ref minValue, ref maxValue, rangeMin, rangeMax);
 
             if (EditorGUI.EndChangeCheck())
@@ -167,7 +169,7 @@ namespace MyBox.Internal
                 }
             }
 
-            EditorGUI.EndProperty();
+            //EditorGUI.EndProperty();
         }
     }
 }
