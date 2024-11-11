@@ -140,6 +140,7 @@ namespace MyBox.Internal
 
             const float rangeBoundsLabelWidth = 45f;
 
+            EditorGUI.BeginChangeCheck();
             var rangeBoundsLabel1Rect = new Rect(position);
             rangeBoundsLabel1Rect.width = rangeBoundsLabelWidth;
             //GUI.Label(rangeBoundsLabel1Rect, new GUIContent(minValue.ToString(isInt ? "F0" : "F2")));
@@ -152,7 +153,6 @@ namespace MyBox.Internal
             maxValue = EditorGUI.FloatField(rangeBoundsLabel2Rect, maxValue);
             position.xMax -= rangeBoundsLabelWidth;
 
-            //EditorGUI.BeginChangeCheck();
             EditorGUI.MinMaxSlider(position, ref minValue, ref maxValue, rangeMin, rangeMax);
 
             if (EditorGUI.EndChangeCheck())
@@ -169,7 +169,7 @@ namespace MyBox.Internal
                 }
             }
 
-            //EditorGUI.EndProperty();
+            EditorGUI.EndProperty();
         }
     }
 }
