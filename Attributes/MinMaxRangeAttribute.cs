@@ -64,6 +64,11 @@ namespace MyBox
             return Mathf.Lerp(ranged.Min, ranged.Max, t);
         }
 
+        public static float LerpFromRangeUnclamped(this RangedFloat ranged, float t)
+        {
+            return Mathf.LerpUnclamped(ranged.Min, ranged.Max, t);
+        }
+
         public static bool IsInRanged(this RangedFloat ranged, float t)
         {
             return t >= ranged.Min && t <= ranged.Max;
@@ -74,11 +79,6 @@ namespace MyBox
             return Random.Range(ranged.Min, ranged.Max);
         }
 
-        public static float LerpFromRangeUnclamped(this RangedFloat ranged, float t)
-        {
-            return Mathf.LerpUnclamped(ranged.Min, ranged.Max, t);
-        }
-
         public static float LerpFromRange(this RangedInt ranged, float t)
         {
             return Mathf.Lerp(ranged.Min, ranged.Max, t);
@@ -87,6 +87,16 @@ namespace MyBox
         public static float LerpFromRangeUnclamped(this RangedInt ranged, float t)
         {
             return Mathf.LerpUnclamped(ranged.Min, ranged.Max, t);
+        }
+
+        public static bool IsInRanged(this RangedInt ranged, int t)
+        {
+            return t >= ranged.Min && t <= ranged.Max;
+        }
+
+        public static int GetRandomRanged(this RangedInt ranged)
+        {
+            return Random.Range(ranged.Min, ranged.Max + 1);
         }
     }
 }
