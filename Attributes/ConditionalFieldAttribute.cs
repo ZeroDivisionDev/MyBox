@@ -58,7 +58,9 @@ namespace MyBox.Internal
 		{
 			if (!_toShow) return;
 
-			if (!CustomDrawerUsed()) EditorGUI.PropertyField(position, property, label, true);
+			EditorGUI.PropertyField(position, property, label, true);
+
+			// if (!CustomDrawerUsed()) EditorGUI.PropertyField(position, property, label, true);
 
 			
 			bool CustomDrawerUsed()
